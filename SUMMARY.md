@@ -16,3 +16,10 @@
 * [02.URI & MIME type](week2/02.uri-and-mime-type.md)
 * [03.Collection Pattern](week2/03.collection-pattern.md)
 * [04.REST API - Spring Web MVC](week2/04.rest-api-spring-web-mvc.md)
+
+***
+
+* [WEEK3](week3.md)
+* [DTO](dto.md)
+* [직렬화와 Jackson ObjectMapper](jackson-objectmapper.md)
+* [CORS](cors.md)
