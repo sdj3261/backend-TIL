@@ -44,3 +44,34 @@ Jackson ObjectMapper를 통해 DTO <-> JSON 변환하며 필드명은 getter 메
 
 ### 궁금한 점?
 1. @ComponentScan
+Spring IOC 컨테이너에게 특정 패키지를 스캔하도록 지시하여 해당 패키지에 있는 어노테이션이 붙은 클래스를 Spring Bean으로 자동 등록한다.
+이러한 Bean으로 등록된 객체는 Spring IOC 컨테이너를 통해 어디서나 주입 받아 사용 가능하다.
+```
+@Component
+public class SomeClass {
+    private final SomeBean someBean;
+
+    @Autowired
+    public SomeClass(SomeBean someBean) {
+        this.someBean = someBean;
+    }
+}
+
+@Component
+public class SomeClass {
+    private final SomeBean someBean;
+
+    @Autowired
+    public SomeClass(SomeBean someBean) {
+        this.someBean = someBean;
+    }
+}
+```
+2. 생성자 주입의 장점 :
+
+1. 불변성(Immutability): 생성자 주입을 사용하면, 해당 필드를 final로 선언할 수 있습니다. 이는 객체가 생성된 후 해당 필드의 상태가 변경되지 않도록 보장하며, 객체의 불변성을 증진시킵니다. 불변 객체는 스레드 안전성을 갖게 되어 병렬 처리 환경에서도 안정적으로 사용할 수 있습니다. <br>
+2. 의존성 명확성: 생성자를 통해 주입받는 의존성이 명시적으로 드러나므로, 해당 클래스가 어떤 의존성을 필요로 하는지 쉽게 파악할 수 있습니다. <br>
+3. 순환 의존성(Circular Dependency) 감지: 생성자 주입을 사용할 경우, 순환 의존성이 발생하면 Spring 컨테이너는 애플리케이션 시작 시점에 오류를 발생시킵니다. 따라서 순환 의존성 문제를 조기에 발견하고 수정할 수 있습니다. <br>
+4. Null 안전성: 생성자를 통해 의존성이 제대로 주입되지 않았을 경우 객체 생성 자체가 실패하게 됩니다. 따라서 Null Pointer Exception(NPE)의 발생 가능성을 줄일 수 있습니다. <br>
+필드 주입이나 세터 주입에 비해 오버헤드 감소: <br>
+5. 생성자 주입은 객체 생성 시점에 한 번만 호출되므로, 필드나 세터를 통한 주입 방식보다 추가적인 메서드 호출 오버헤드가 발생하지 않습니다. <br>
