@@ -17,9 +17,14 @@
 * [03.Collection Pattern](week2/03.collection-pattern.md)
 * [04.REST API - Spring Web MVC](week2/04.rest-api-spring-web-mvc.md)
 
-***
+## WEEK3
 
-* [WEEK3](week3.md)
-* [DTO](dto.md)
-* [직렬화와 Jackson ObjectMapper](jackson-objectmapper.md)
-* [CORS](cors.md)
+* [DTO](week3/dto.md)
+* [직렬화와 Jackson ObjectMapper](week3/jackson-objectmapper.md)
+* [CORS](week3/cors.md)
+
+## WEEK4
+
+* [Layered Architecture](week4/layered-architecture.md)
+* [Data Access](week4/data-access.md)
+* [Domain Model](week4/domain-model.md)
