@@ -20,8 +20,6 @@ Test Driven Development는 테스트 코드를 먼저 작성하고 구현하여 
 
 > [참고 자료](https://github.com/ahastudio/til/blob/main/agile/test-driven-development.md)
 
-{% embed url="https://www.youtube.com/playlist?list=PLbdtsbZUwdeRirBYnWrMSvKYS4CcmXCeU" %}
-
 TDD Cycle
 
 1. Red → 실패하는 테스트 코드를 작성.

@@ -13,7 +13,7 @@
 
 ### Factory 패턴
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 객체 지향 프로그래밍에서 팩토리는 다른 객체를 생성하기 위한 객체이다.&#x20;
 
@@ -132,19 +132,26 @@ public class A {
 
 ➡️ 생성자, Setter, 인터페이스를 통해 주입할 수 있으며 DI를 통해 객체 간 의존성을 줄여 변경이 덜 취약한 코드를 만들고 모의 객체를 주입하여 단위 테스트를 용이하게 만들 수 있다.
 
+### BeanFactory
+
+* 스프링 컨테이너의 최상위 인터페이스이다.
+* 스프링 빈을 관리하고 조회하는 역할을 담당한다.
+* getBean() 인터페이스를 제공하여 등록된 빈을 조회할 수 있게 해준다.
+* 우리가 사용했던 대부분의 기능은 BeanFactory가 제공하는 기능이다.
+
+BeanFactory의 기능을 모두 상속받아 제공한다. 그렇다면 굳이 BeanFactory와 ApplicationContext를 나눈 이유는 무엇일까? 그건 바로 어플리케이션을 개발할 때 빈을 관리하고 조회하는 기능과 더불어 수많은 부가기능이 필요하기 때문이다.
+
+&#x20;
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ### 궁금한 점?
 
 1. 싱글턴 패턴과 정적클래스의 차이가 무엇인가?
 
-\=> **싱글턴 패턴은 그래도 객체를 생성한다. (확장과 인터페이스 구현이 가능)**
-
-
-
-**싱글턴 패턴은 코드 상에서 의존 관계를 명확하게 보여준다.**
+➡️ **싱글턴 패턴은 그래도 객체를 생성한다. (확장과 인터페이스 구현이 가능), 싱글턴 패턴은 코드 상에서 의존 관계를 명확하게 보여준다.**
 
 싱글턴 패턴은 상태를 가지고 생성과 파괴시기를 선택할 수 있어 테스트 하는데 문제가 없지만 정적 static class는 mocking이 불가능하거나 구현에 제한이 있다 또한정적 스택에 저장이 되기 때문에 쓰레드 관리가 어렵다.
-
-
 
 ```
    void myMethod(Singleton singleton) {
@@ -158,3 +165,15 @@ public class A {
   	singleton.methodA();
   }
 ```
+
+2. Spring의 BeanFactory, ApplicationContext 둘 다프링 컨테이너이다&#x20;
+
+ApplicationContext는&#x20;
+
+* MessageSource : 메시지 소스를 활용한 국제화 기능(나라별 언어 설정)
+* EnviromentCapable : 환경변수 기능, 로컬 - 개발 - 운영등을 구분하여 처리
+* ApplicationEventPublisher : 앱 이벤트, 이벤트를 발행하고 구독하는 모델을 편리하게 지원
+* ResourceLoader : 편리한 리소스 조회, 파일 - 클래스패스 - 외부등에서 리소스를 편리하게 조회
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
