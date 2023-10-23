@@ -34,3 +34,10 @@
 * [Dependency Injection](week5/dependency-injection.md)
 * [Unit Test & Spring Test](week5/unit-test-and-spring-test.md)
 * [TDD](week5/tdd.md)
+
+## WEEK6
+
+* [Database](week6/database.md)
+* [Relational Model & Relational Algebra](week6/relational-model-and-relational-algebra.md)
+* [Entity-Relational Model](week6/entity-relational-model.md)
+* [JDBC & JDBC Template](week6/jdbc-and-jdbc-template.md)
