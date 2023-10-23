@@ -13,7 +13,7 @@
 
 ### Factory 패턴
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 객체 지향 프로그래밍에서 팩토리는 다른 객체를 생성하기 위한 객체이다.&#x20;
 
