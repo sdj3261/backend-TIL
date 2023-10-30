@@ -41,3 +41,7 @@
 * [Relational Model & Relational Algebra](week6/relational-model-and-relational-algebra.md)
 * [Entity-Relational Model](week6/entity-relational-model.md)
 * [JDBC & JDBC Template](week6/jdbc-and-jdbc-template.md)
+
+## WEEK7
+
+* [ORM](week7/orm.md)
