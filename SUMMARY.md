@@ -45,3 +45,7 @@
 ## WEEK7
 
 * [ORM](week7/orm.md)
+* [Hibernate](week7/hibernate.md)
+* [Embeddable](week7/embeddable.md)
+* [Relational Mapping](week7/relational-mapping.md)
+* [Spring Data JPA](week7/spring-data-jpa.md)
