@@ -13,7 +13,7 @@
 
 ### Factory 패턴
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 객체 지향 프로그래밍에서 팩토리는 다른 객체를 생성하기 위한 객체이다.&#x20;
 
@@ -175,5 +175,5 @@ ApplicationContext는&#x20;
 * ApplicationEventPublisher : 앱 이벤트, 이벤트를 발행하고 구독하는 모델을 편리하게 지원
 * ResourceLoader : 편리한 리소스 조회, 파일 - 클래스패스 - 외부등에서 리소스를 편리하게 조회
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
