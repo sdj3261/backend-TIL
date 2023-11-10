@@ -49,3 +49,10 @@
 * [Embeddable](week7/embeddable.md)
 * [Relational Mapping](week7/relational-mapping.md)
 * [Spring Data JPA](week7/spring-data-jpa.md)
+
+## WEEK8
+
+* [DDD & Strategic Design](week8/ddd-and-strategic-design.md)
+* [Entity, Value Object](week8/entity-value-object.md)
+* [Aggregate](week8/aggregate.md)
+* [Repository](week8/repository.md)
