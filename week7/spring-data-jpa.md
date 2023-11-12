@@ -28,7 +28,7 @@ DDD Repository는 도메인 모델의 일부로 컬렉션 처럼 작동하여 �
 
 * 클래스를 설계하다보면 로깅, 보안, 트랜잭션 등 여러 클래스에서 공통적으로 사용하는 부가 기능들이 생긴다. 이들은 주요 비즈니스 로직은 아니지만, 반복적으로 여러 곳에서 쓰이는 데 이를 **흩어진 관심사(Cross Cutting Concerns)**라고 한다.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. target에 대한 호출이 들어오면 AOP proxy가 이를 가로채서(intercept) 가져온다.
 2. AOP proxy에서 Transaction Advisor가 commit 또는 rollback 등의 트랜잭션 처리를 한다.
@@ -46,6 +46,6 @@ DDD Repository는 도메인 모델의 일부로 컬렉션 처럼 작동하여 �
 
 스프링 데이터 JPA가 `JpaRepository` 인터페이스를 상속받는 리포지토리 인터페이스를 만나면 리플렉션을 활용해 `SimpleJpaRepository` 클래스를 기반으로 동적으로 프록시를 생성해서 잘 동작할 수 있었던 것이다.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 스프링은 사용자가 정의한 Repository 인터페이스를 구현하고 SimpleJpaRepository를 target으로 포함하는 Proxy를 동적으로 만들어주면서 그 Proxy를 Bean으로 등록해주고 연관관계 설정이 필요한 곳에 주입도 해주어 개발자에게편리성을 제공한다.

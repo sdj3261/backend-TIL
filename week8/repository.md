@@ -7,39 +7,29 @@
 
 ### 강의 정리
 
-\| ORM
+\| Repository
 
-* 객체와 관계형 데이터베이스 간을 매핑하는 기술, 도구를 의미한다. 객체 생성, 상태 감지, 생명주기 관리 기능을 포함한다.&#x20;
-* ORM 도구를 통해 SQL문을 자동으로 생성하여 다양한 DBMS에 유연하게 대응하기 때문에 비즈니스 로직에 집중하고 유지보수 하기 좋다.&#x20;
-* 결과적으로, 무기력한 도메인 객체가 아닌 객체지향 원칙을 따르는 도메인 객체를 영속화할 수 있게 되었다.
+* 리파지터리는 도메인 모델의 영속성을 관리하는 역할을 합니다. 즉, 도메인 엔티티나 집합체(Aggregate)를 데이터베이스에 저장하고 검색하는 메커니즘을 제공합니다.
+* 이는 도메인 레이어와 데이터 저장소 사이의 중간자 역할을 하며, 도메인 로직과 데이터베이스 로직을 분리합니다. 이로 인해 도메인 로직이 데이터베이스 구현 세부 사항으로부터 독립적으로 유지될 수 있습니다.
+* 리파지터리는 일반적으로 인터페이스로 정의되고, 구현체는 인프라스트럭처 레이어에서 제공됩니다.
+* 적절한 Aggregate를 발견하고, 적절히 책임을 나눌 수 있도록 Entity와 Value Object로 구성(또는 분해)하고, 이를 위한 Repository를 만듦으로써, 여러 기술 문제와 무관한 비즈니스 도메인에 집중할 수 있게 된다.
+* Spring Data JPA는 이 둘을 만족시키기 위한 기능을 갖추고 있다.&#x20;
+  1. Aggregate에 대해서만 Repository를 만들어도 안정적으로 작동할 수 있도록 기능을 제공한다.
+  2. Persistence Context를 통해 Collection처럼 사용하는 게 가능하다.
+  3. 아예 인터페이스만 만들면 나머지는 크게 신경 쓰지 않아도 되는 기능까지 제공한다.
 
-\| JPA
+\| Application Layer와 UI Layer
 
-Jakarta Persistence API는 Java에서 사용하는 ORM 표준으로 인터페이스이다.
+* Layered Architecture의 도움 없이는 도메인 모델을 Domain Layer에 격리하는 게 불가능하다.&#x20;
+* 성공적인 Layered Architecture는 네 가지 개념적 계층으로 나뉜다.
+  * Presentation Layer(UI Layer)
+    * 사용자의 응답 및 요청을 처리
+    * Web 등 구체적인 기술로 사용자와 소통하는 코드가 모인 곳
+  * Application Layer
+    * Repository와 Aggregate를 사용하는 코드가 모인 곳
+  * Domain Layer&#x20;
+    * 비즈니스 도메인에 집중한 코드를 모아둔 곳
+  * Infrastructure Layer
 
-Hibernate, EclipseLink와 같은 구현체를 통해 jpa를 구현한다. 현재는 Hibernate를 가장 널리 사용한다.
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-\| Jakarta EE
-
-자바EE는 상업용 플랫폼의 한계와 스프링 프레임워크와 같은 오픈소스 SW의 발전으로 빠르게 변화하는 기술 트렌드를 반영하지 못해 인기가 시들해지며 비영리 단체인 이클립스 재단에 자바 EE 프로젝트를 이관하면서 오픈소스 기반의 Jakarta EE로 변경되었다.
-
-자카르타EE의 핵심 목표는 ‘클라우드 네이티브 환경을 위한 엔터프라이즈 자바 기술’로 마이크로서비스, 컨테이너 등의 최신 기술 트렌드를 반영하고자 하는 것이 목표이다'
-
-\| Entity
-
-엔티티는 기본적으로  테이블에 대응되는 클래스이며 실세계 객체를 모델링한 것을 의미하며 비즈니스 로직, 시스템 내의 데이터, 행동 등을 포함한다.
-
-DB 세계와 관련: “Entities represent persistent data **stored in a relational database** automatically using container-managed persistence.”
-
-OOP 세계와 관련: “An entity models a **business entity** or **multiple actions** within a single business process.”
-
-OOP와 관련지어 생각을 안하게 되면 애매한 DB에 끌려가는 프로그램이 되기 십상이다.
-
-
-
-### 궁금한 점?
-
-1. ORM과 DB중심 개발의 차이점과 장단점은 무엇일까?
-
-* 자바의ORM(JPA)은 객체 지향 프로그래밍 중심으로 데이터 접근을 추상화하여 데이터베이스와 독립성을 가지게 만들어준다. 단점으로는 성능 문제가 있으며 복잡한 쿼리나 튜닝이 필요한 경우가 있을 수 있다.
-* DB 중심 개발은 직접적인 데이터베이스 접근을 통해 DB 스키마에 의존을 통해 성능 최적화와 직접적인 제어가 가능한 것이 특징이다. 단점으로는 모든 SQL을 직접 작성하여 개발 복잡성이 증가하고 쿼리의 유지보수가 어려울 수 있다. 또한 특정 DB에 종속성을 가지게 된다.

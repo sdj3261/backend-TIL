@@ -2,47 +2,49 @@
 
 ### 목차
 
-* 도메인 주도 설계
-* 기술 부채의 의미
-* 보편언어 (Ubiqutious Language)
-* 제한된 컨텍스트 (Bounded Context)
-* 하위 도메인 (Subdomain)
+* 전술적 설계 (Tactical Design)
+* 엔티티 (Entity) vs 일반적으로 이야기하는 개체 (Entity)
+* 값 객체 (Value Object, VO)
+* 동일성(Identity)과 동등성(Equality)
 
 ### 강의 정리
 
-\| ORM
+\| 전술적 설계 (Tactical Design)
 
-* 객체와 관계형 데이터베이스 간을 매핑하는 기술, 도구를 의미한다. 객체 생성, 상태 감지, 생명주기 관리 기능을 포함한다.&#x20;
-* ORM 도구를 통해 SQL문을 자동으로 생성하여 다양한 DBMS에 유연하게 대응하기 때문에 비즈니스 로직에 집중하고 유지보수 하기 좋다.&#x20;
-* 결과적으로, 무기력한 도메인 객체가 아닌 객체지향 원칙을 따르는 도메인 객체를 영속화할 수 있게 되었다.
+* 전술적 설계는 전략적 설계에서 도출된 Bounded Context와 Domain을 이용하여 Aggregate(집합) 패턴, Entity와 VO, Repogitory(저장소), 등을 구성하고 구현하는 활동을 의미한다.
+* 다만 전략적 설계 패턴는 커다란 시스템을 만들 때는 더욱 중요하지만 작은 규모의 설계에서는 다룰 수 있는 주제가 아니다.
+  * 전술적 설계만 다룰 경우 DDD Lite, Model Driven Design이라고 불린다.
+* 도메인 모델의 대표적인 패턴&#x20;
+  1. Entity
+  2. Value Object
+  3. Aggregate
+  4. Repository
 
-\| JPA
+\| 엔티티 (Entity) vs 일반적으로 이야기하는 개체 (Entity)
 
-Jakarta Persistence API는 Java에서 사용하는 ORM 표준으로 인터페이스이다.
+* OOP에서의 대부분의 객체는 속성이 아니라 연속성, 식별성에 따라 정의된다.
+* 식별자(Identifier)가 존재하고, 이를 통해 동일성(Identity)을 확인한다면 DDD의 Entity라고 할 수 있다.
 
-Hibernate, EclipseLink와 같은 구현체를 통해 jpa를 구현한다. 현재는 Hibernate를 가장 널리 사용한다.
+\| 값 객체(VO)
 
-\| Jakarta EE
+VO는 도메인에서 한 개 또는 그 이상의 속성들을 묶어서 특정 값을 나타내는 객체를 말하며, 연속성, 식별성이 중요하지 않은 객체를 의미한다.
 
-자바EE는 상업용 플랫폼의 한계와 스프링 프레임워크와 같은 오픈소스 SW의 발전으로 빠르게 변화하는 기술 트렌드를 반영하지 못해 인기가 시들해지며 비영리 단체인 이클립스 재단에 자바 EE 프로젝트를 이관하면서 오픈소스 기반의 Jakarta EE로 변경되었다.
+VO 의 특징
 
-자카르타EE의 핵심 목표는 ‘클라우드 네이티브 환경을 위한 엔터프라이즈 자바 기술’로 마이크로서비스, 컨테이너 등의 최신 기술 트렌드를 반영하고자 하는 것이 목표이다'
+* 불변성 (Immutable)
+  * VO는 수정자(Setter) 메소드를 가지지 않는다. 즉 불변하다.
+* 동등성 (Equality)
+  * 두 객체가 실제 다른 객체이더라도(동일성-identity을 갖지 않더라도) 논리적으로 값이 같다면 동등성을 갖는다. (자바의 equals 메서드를 속성 값이 같은지 구현)
+* 자가 유효성 검사 (Self-Validation)
+  * 모든 유효성 검사는 생성 시간에 이루어져야 한다.
+  * 따라서 유효하지 않는 값으로 VO를 생성할 수 없다.
 
-\| Entity
+\| 동일성(Identity)과 동등성(Equality)
 
-엔티티는 기본적으로  테이블에 대응되는 클래스이며 실세계 객체를 모델링한 것을 의미하며 비즈니스 로직, 시스템 내의 데이터, 행동 등을 포함한다.
+#### 동일성
 
-DB 세계와 관련: “Entities represent persistent data **stored in a relational database** automatically using container-managed persistence.”
+* 비교 대상의 두 객체의 메모리 주소가 같음을 의미한다. (==)
 
-OOP 세계와 관련: “An entity models a **business entity** or **multiple actions** within a single business process.”
+동등성
 
-OOP와 관련지어 생각을 안하게 되면 애매한 DB에 끌려가는 프로그램이 되기 십상이다.
-
-
-
-### 궁금한 점?
-
-1. ORM과 DB중심 개발의 차이점과 장단점은 무엇일까?
-
-* 자바의ORM(JPA)은 객체 지향 프로그래밍 중심으로 데이터 접근을 추상화하여 데이터베이스와 독립성을 가지게 만들어준다. 단점으로는 성능 문제가 있으며 복잡한 쿼리나 튜닝이 필요한 경우가 있을 수 있다.
-* DB 중심 개발은 직접적인 데이터베이스 접근을 통해 DB 스키마에 의존을 통해 성능 최적화와 직접적인 제어가 가능한 것이 특징이다. 단점으로는 모든 SQL을 직접 작성하여 개발 복잡성이 증가하고 쿼리의 유지보수가 어려울 수 있다. 또한 특정 DB에 종속성을 가지게 된다.
+* 비교 대상의 두 객체가 논리적으로 동일한 값을 나타내고 있는 지를 의미한다. (equals).
