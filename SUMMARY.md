@@ -56,3 +56,8 @@
 * [Entity, Value Object](week8/entity-value-object.md)
 * [Aggregate](week8/aggregate.md)
 * [Repository](week8/repository.md)
+
+## week9
+
+* [SOLID](week9/solid.md)
+* [Hexagonal Architecture](week9/hexagonal-architecture.md)
