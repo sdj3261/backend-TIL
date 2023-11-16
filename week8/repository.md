@@ -31,5 +31,5 @@
     * 비즈니스 도메인에 집중한 코드를 모아둔 곳
   * Infrastructure Layer
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
