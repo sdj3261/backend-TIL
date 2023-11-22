@@ -61,3 +61,10 @@
 
 * [SOLID](week9/solid.md)
 * [Hexagonal Architecture](week9/hexagonal-architecture.md)
+
+## week10
+
+* [애플리케이션 수준의 보안](week10/undefined.md)
+* [인증](week10/undefined-1.md)
+* [로그인 및 회원가입](week10/undefined-2.md)
+* [JWT & Authority](week10/jwt-and-authority.md)
