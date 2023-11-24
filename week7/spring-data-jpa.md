@@ -28,7 +28,7 @@ DDD Repository는 도메인 모델의 일부로 컬렉션 처럼 작동하여 �
 
 * 클래스를 설계하다보면 로깅, 보안, 트랜잭션 등 여러 클래스에서 공통적으로 사용하는 부가 기능들이 생긴다. 이들은 주요 비즈니스 로직은 아니지만, 반복적으로 여러 곳에서 쓰이는 데 이를 **흩어진 관심사(Cross Cutting Concerns)**라고 한다.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. target에 대한 호출이 들어오면 AOP proxy가 이를 가로채서(intercept) 가져온다.
 2. AOP proxy에서 Transaction Advisor가 commit 또는 rollback 등의 트랜잭션 처리를 한다.

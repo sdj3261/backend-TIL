@@ -38,7 +38,7 @@
     여기서 도메인과 컨텍스트의 차이를 설명하자면 도메인은 **특정한 비즈니스 분야**를 의미한다. (예: 은행, 항공, 호텔) 그리고 컨텍스트는 **도메인 안에서 특정한 비즈니스 문제 영역**을 의미한다. (예: 은행 도메인의 대출 신청, 계좌 개설)
 * Bounded Context 를 통해 어플리케이션의 전체적인 아키텍쳐를 구성한다.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 \|  하위 도메인(Sub Domain)
 

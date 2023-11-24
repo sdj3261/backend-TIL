@@ -33,7 +33,7 @@ V-Model은 소프트웨어의 개발 프로세스로 폭포수 모델의 확장 
 
 
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 우리가 일반적으로 말하는 품질은 개발의 외적 품질을 이야기 하지만(편의성, 디자인내적 품질도 매우 중요하다. 당장에 큰 성과가 나오는건 아니지만 외적 품질을 끌어올리거나 문제에 대해 대응하고 유지  보수하기 좋아져 장기적으로 생산성을 높일 수 있다.&#x20;
 

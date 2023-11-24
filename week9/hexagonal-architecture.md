@@ -26,7 +26,7 @@ DDD에서 구분한 Layered Architecture가 아닌 전통적인 3계층 관점�
 
 
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
