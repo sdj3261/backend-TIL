@@ -15,7 +15,7 @@
 
 ### 강의정리
 
-스프링  시큐리티의   기본인증 방식은 인증 정보를 암호화하지 않고 매번 반복적으로 보내기 때문에 위험하다. 따라서 로그인 이후에는 임시로 쓸 수 있게 발급된 Access Token을 사용해야 한다. OAuth 2.0 이후로는 HTTP 헤더를 통해 Bearer Token으로 전달한다.
+스프링  시큐리티의  기본인증 방식은 인증 정보를 암호화하지 않고 매번 반복적으로 보내기 때문에 위험하다. 따라서 로그인 이후에는 임시로 쓸 수 있게 발급된 Access Token을 사용해야 한다.&#x20;
 
 ```
 #Spring Security 적용전
@@ -24,6 +24,7 @@ http localhost:8080/api
 #Spring Security 적용후
 http -a <username>:<password> localhost:8080/api
 
+#OAuth 2.0 이후로는 HTTP 헤더를 통해 Bearer Token으로 전달한다.
 http -A bearer -a <accessToken> localhost:8080
 ```
 
@@ -31,6 +32,8 @@ http -A bearer -a <accessToken> localhost:8080
    * 식별자는 객체, 변수, 함수 등을 구별하기 위해 사용되는 이름입니다. 보안 측면에서, 식별자는 사용자, 세션, 자원 등을 구별하는 데 사용됩니다.
 
 **PostgreSQL (MySQL, MariaDB와 두드러지는 차별점)**:
+
+두 DB의 가장 큰 차이점은 PostgreSQL은 멀티 프로세스 방식이며, MariaDB는 멀티쓰레드 방식을 사용하고 있는것 입니다. 여기서 오는 가장 큰 차이점은 CPU 멀티 코어의 사용여부인데, 멀티 프로세스를 사용하는 PostgreSQL의 경우 복잡한 쿼리나 join의 처리 방식에서 좀 더 뛰어난 성능을 보여줍니다.
 
 |                       | MySQL                                               | **PostgreSQL**                |
 | --------------------- | --------------------------------------------------- | ----------------------------- |
@@ -167,48 +170,9 @@ protected void doFilterInternal(HttpServletRequest request,
 
 Access Token을 이용해 인증하기 위해 우리는 다음과 같은 작업을 추가해야 한다:
 
-1. HTTP 헤더에서 Access Token을 얻는다.
-2. Access Token이 올바른지 확인하고, 이를 통해 사용자가 누구인지 알아내 Authentication 객체를 만든다.
+1. HTTP 요청헤더에서 Access Token을 얻는다.
+2. Access Token이 유효한 토큰인지  검증하고, 이를 통해 사용자가 누구인지 알아내 Authentication 객체를 만든다.
 3. 올바르게 인증이 됐다면 SecurityContext에 Authentication 객체를 추가한다.
 
-* **SecurityContext**:  SecurityContext는 인증된 사용자의 세부 정보를 저장합니다. 이 컨텍스트를 통해 애플리케이션 내에서 현재 사용자의 인증 정보에 접근할 수 있습니다.
-
-AccessTokenAuthenticationFilter에서 HTTP 헤더를 분석하고, AccessTokenService를 이용해 Authentication 객체를 얻는다.
-
-```
-@Component
-public class AccessTokenAuthenticationFilter extends OncePerRequestFilter {
-    private static final String AUTHORIZATION_PREFIX = "Bearer ";
-
-    private final AccessTokenService accessTokenService;
-
-    public AccessTokenAuthenticationFilter(
-            AccessTokenService accessTokenService) {
-        this.accessTokenService = accessTokenService;
-    }
-
-    @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain)
-            throws ServletException, IOException {
-        String accessToken = parseAccessToken(request);
-
-        Authentication authentication = accessTokenService
-                .authenticate(accessToken);
-
-        SecurityContextHolder.getContext()
-                .setAuthentication(authentication);
-
-        filterChain.doFilter(request, response);
-    }
-
-    private static String parseAccessToken(HttpServletRequest request) {
-        return Optional.ofNullable(request.getHeader("Authorization"))
-                .filter(i -> i.startsWith(AUTHORIZATION_PREFIX))
-                .map(i -> i.substring(AUTHORIZATION_PREFIX.length()))
-                .orElse("");
-    }
-}
-```
+**SecurityContext**:  SecurityContext는 인증된 사용자의 세부 정보를 저장한다. 이 컨텍스트를 통해 애플리케이션 내에서 현재 사용자의 인증 정보에 접근할 수 있습니다.
 
