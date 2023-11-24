@@ -128,11 +128,10 @@ Filter는 HTTP 요청과 응답에 대한 전처리와 후처리를 수행하며
 
 
 
-1. @RequestAttribute @ControllerAdvice @RestControllerAdvice 정리
-2. **@RequestAttribute와 스프링 시큐리티**
+1. **@RequestAttribute와 스프링 시큐리티**
    * `@RequestAttribute`를 사용하여 스프링 시큐리티에서 설정된 사용자 정보나 권한 정보 등을 컨트롤러에서 쉽게 접근할 수 있습니다.
    * 요청 처리 과정에서 필터나 인터셉터에서 생성되는 데이터를 컨트롤러에서 효율적으로 사용할 수 있게 도와줍니다. 주로 상태 정보, 사용자 정보, 인증 데이터 등이 이 방식으로 전달되고 사용됩니다.
-3. **@ControllerAdvice, @RestControllerAdvice와 스프링 시큐리티**
+2. **@ControllerAdvice, @RestControllerAdvice와 스프링 시큐리티**
    * 전역적인 예외 처리에 사용됩니다. 스프링 시큐리티와 관련된 예외(예: 접근 거부, 인증 실패 등)를 처리하기 위해 사용될 수 있습니다.
    * `@RestControllerAdvice`는 RESTful API에서 발생하는 보안 관련 예외를 JSON 형태로 반환하는 데 사용됩니다.
 
