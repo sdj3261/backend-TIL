@@ -73,3 +73,8 @@
 
 * [Multipart Form Data](week11/multipart-form-data.md)
 * [Cloudinary](week11/cloudinary.md)
+
+## week12
+
+* [CQRS](week12/cqrs.md)
+* [Redis](week12/redis.md)
