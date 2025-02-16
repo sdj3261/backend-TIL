@@ -1,6 +1,7 @@
 # Table of contents
 
-* [backend TIL](README.md)
+* [megaptera-backend](README.md)
+* [📑 자바의 신 (도서) ](book-java.md)
 
 ## week1
 
