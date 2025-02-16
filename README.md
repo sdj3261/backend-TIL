@@ -2,10 +2,11 @@
 Description: 백엔드 스터디 내용을 기록합니다.'
 ---
 
-# Backend
+# backend TIL
 
-## 다루는 기술
+## 다루는기술
 
+* 자바의 신 (도서)
 * HTTP
 * REST API
 * JSON과 DTO
