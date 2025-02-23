@@ -49,3 +49,7 @@ public class ReferenceStaticVariable {
 
 static은 JVM 시 싱글톤 인스턴스를 참조하게 되므로 클래스 변수 사용에 주의가 필요하다.
 
+
+
+Pass&#x20;
+
