@@ -1,24 +1,29 @@
----
-Description: 백엔드 스터디 내용을 기록합니다.'
----
+# Today I Learned 
+이 저장소는 제가 매일 학습한 내용을 기록하고 정리하기 위해 만든 공간입니다. 기술적인 개념, 실습하면서 마주친 문제들, 정리하고 싶은 개념들을 주제별/일자별로 구조화하여 관리하고 있습니다.
 
-# Backend
+✍️ 목적
+매일 공부한 내용을 짧게라도 기록하며 학습의 깊이를 더합니다.
 
-## 다루는 기술
+시간이 지난 뒤에도 다시 참고할 수 있는 나만의 기술 문서를 구축합니다.
 
-* HTTP
-* REST API
-* JSON과 DTO
-* Spring Web MVC와 CRUD
-* CORS
-* Dependency Injection
-* Layered Architecture
-* DIP, Hexagonal Architecture
-* DDD와 DDD Lite
-* Spring으로 Layered Architecture 구현
-* Junit, Mockito
-* Spring Test
-* Spring Data JPA
-* CQRS
-* Spring Security
-* File Upload
+문서화 습관을 통해 정리 능력과 커뮤니케이션 능력을 키웁니다.
+
+📌 작성 규칙
+최대한 간결하게, 핵심만 정리합니다.
+
+다시 봐도 이해할 수 있도록 자신의 언어로 설명합니다.
+
+
+### Template 
+
+# 2025-06-04
+
+## 📚 공부한 내용
+- Spring Web MVC 구조
+- DispatcherServlet 역할
+
+## 💡 주요 개념들
+- 핸들러 매핑, 핸들러 어댑터는 ~게 작동한다
+
+## 🔗 참고
+- [공식 문서](https://docs.spring.io/spring-framework/)
